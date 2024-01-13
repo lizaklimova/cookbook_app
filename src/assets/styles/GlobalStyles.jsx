@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { topDesk2x, bottomDesk1x } from 'assets/images/background';
 
 export const GlobalStyles = createGlobalStyle`
 *,
@@ -14,10 +15,12 @@ export const GlobalStyles = createGlobalStyle`
   font-size: 14px;
   line-height: 1.29;
   margin: 0;
-  background-color: ${({ theme }) => theme.background};
-  color: ${({ theme }) => theme.text};
-  transition: ${({ theme }) =>
-    `background-color ${theme.eased}, color ${theme.eased}`};
+  color:white;
+  background: 
+  url(${topDesk2x}) no-repeat 0px 0px, 
+  url(${bottomDesk1x}) no-repeat  bottom;
+  background-color: black;
+  
 }
 
 h1,
