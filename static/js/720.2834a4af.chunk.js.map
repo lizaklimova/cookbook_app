@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/720.2834a4af.chunk.js","mappings":"uKAEA,MAIA,EAJyBA,KAChBC,EAAAA,EAAAA,KAAA,S","sources":["pages/NotFoundPage.tsx"],"sourcesContent":["import { FC } from 'react';\n\nconst NotFoundPage: FC = () => {\n  return <div></div>;\n};\n\nexport default NotFoundPage;\n"],"names":["NotFoundPage","_jsx"],"sourceRoot":""}

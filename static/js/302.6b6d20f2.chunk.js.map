@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/302.6b6d20f2.chunk.js","mappings":"uKAEA,MAIA,EAJ0BA,KACjBC,EAAAA,EAAAA,KAAA,S","sources":["pages/FavoritesPage.tsx"],"sourcesContent":["import { FC } from 'react';\n\nconst FavoritesPage: FC = () => {\n  return <div></div>;\n};\n\nexport default FavoritesPage;\n"],"names":["FavoritesPage","_jsx"],"sourceRoot":""}
