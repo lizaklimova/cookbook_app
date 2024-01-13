@@ -11,6 +11,7 @@ export const commonVars = Object.freeze({
 });
 
 export const lightTheme = Object.freeze({
+  ...commonVars,
   background: '#FAFAFA',
   fill: '#22252A', //кнопка хіро в інпуті
   mainText: '#23262A',
@@ -27,6 +28,7 @@ export const lightTheme = Object.freeze({
 });
 
 export const darkTheme = Object.freeze({
+  ...commonVars,
   background: '#1E1F28',
   fill: '#8BAA36',
   mainText: '#FAFAFA',

@@ -1,5 +1,15 @@
-import { FC, lazy, LazyExoticComponent, ComponentType } from 'react';
+import {
+  FC,
+  lazy,
+  LazyExoticComponent,
+  ComponentType,
+  useContext,
+} from 'react';
 import { Routes, Route, NavLink } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyles } from 'assets/styles/GlobalStyles';
+import { lightTheme, darkTheme } from 'assets/theme';
+import { ThemeContext } from 'contexts/themeContext';
 import SharedLayout from 'layout/SharedLayout';
 import WellcomePage from 'pages/WellcomePage';
 
@@ -35,8 +45,12 @@ const NotFoundPage: LazyExoticComponent<ComponentType<any>> = lazy(
 );
 
 const App: FC = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+  const currentTheme = theme === 'light' ? lightTheme : darkTheme;
+
   return (
-    <>
+    <ThemeProvider theme={currentTheme}>
+      <GlobalStyles />
       <header>
         <nav
           style={{
@@ -74,7 +88,7 @@ const App: FC = () => {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
-    </>
+    </ThemeProvider>
   );
 };
 
