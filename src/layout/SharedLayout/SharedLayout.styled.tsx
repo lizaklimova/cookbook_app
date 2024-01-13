@@ -23,12 +23,14 @@ export const BgLeavesTop = styled.div`
   background: url(${topMob}) no-repeat center/cover;
 
   @media screen and (min-width: 768px) {
+    bottom: 250px;
     width: 423px;
     height: 646px;
     background-image: url(${topTab});
   }
 
   @media screen and (min-width: 1440px) {
+    bottom: 0px;
     width: 558px;
     height: 852px;
     background-image: url(${topDesk});
