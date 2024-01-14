@@ -1,6 +1,38 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
+:root {
+--accentGreen: ${({ theme }) => theme.accentGreen};
+--lightGreen: ${({ theme }) => theme.lightGreen};
+--white: ${({ theme }) => theme.white};
+--black:${({ theme }) => theme.black};
+--light:${({ theme }) => theme.light};
+--warning:${({ theme }) => theme.warning};
+--error:${({ theme }) => theme.error};
+--success:${({ theme }) => theme.success};
+--dark:${({ theme }) => theme.dark};
+--lightDark:${({ theme }) => theme.lightDark};
+--grey:${({ theme }) => theme.grey};
+--titleCommon:${({ theme }) => theme.titleCommon};
+--subtitleCommon:${({ theme }) => theme.subtitleCommon};
+--background:${({ theme }) => theme.background};
+--lightBg:${({ theme }) => theme.lightBg};
+--fill:${({ theme }) => theme.fill};
+--mainText:${({ theme }) => theme.mainText};
+--title:${({ theme }) => theme.title};
+--subtitle:${({ theme }) => theme.subtitle};
+--strokes:${({ theme }) => theme.strokes};
+--heroInput:${({ theme }) => theme.heroInput};
+--scrollbar:${({ theme }) => theme.scrollbar};
+--paginationItem:${({ theme }) => theme.paginationItem};
+--paginationBg:${({ theme }) => theme.paginationBg};
+--paginationArrow:${({ theme }) => theme.paginationArrow};
+--paginationActiveBg:${({ theme }) => theme.paginationActiveBg};
+--paginationActiveText:${({ theme }) => theme.paginationActiveText};
+--selectBg:${({ theme }) => theme.selectBg};
+--easedTransition:${({ theme }) => theme.easedTransition};
+}
+
 *,
 *::before,
 *::after {
@@ -14,11 +46,9 @@ export const GlobalStyles = createGlobalStyle`
   font-size: 14px;
   line-height: 1.29;
   margin: 0;
-  
-  color: ${({ theme }) => theme.mainText};
-  background-color: ${({ theme }) => theme.background};
-  transition: ${({ theme }) =>
-    `background-color ${theme.easedTransition}, color ${theme.easedTransition}`};
+  color: var(--mainText);
+  background-color: var(--background);
+  transition: background-color var(--easedTransition), color var(--easedTransition);
 }
 
 h1,
