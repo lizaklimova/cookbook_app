@@ -43,7 +43,7 @@ const App: FC = () => {
   return (
     <ThemeProvider theme={currentTheme}>
       <GlobalStyles />
-      <header>
+      {/* <header>
         <nav
           style={{
             display: 'flex',
@@ -59,7 +59,7 @@ const App: FC = () => {
           <NavLink to="/shopping-list">Shopping list</NavLink>
           <NavLink to="search">Search</NavLink>
         </nav>
-      </header>
+      </header> */}
 
       <Routes>
         <Route path="/" element={<WellcomePage />} />
