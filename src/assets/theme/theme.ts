@@ -2,7 +2,7 @@ interface Theme {
   [key: string]: string;
 }
 
-export const commonVars: Theme = Object.freeze({
+const commonVars: Theme = Object.freeze({
   accentGreen: '#8BAA36',
   lightGreen: '#EBF3D4',
   white: 'fffff',
