@@ -17,7 +17,7 @@ const defaultContextValue: ThemeContextProps = {
 const ThemeContext = createContext<ThemeContextProps>(defaultContextValue);
 
 const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
-  const [theme, setTheme] = useState(() => {
+  const [theme, setTheme] = useState<string>(() => {
     const storedTheme = localStorage.getItem('theme');
     return storedTheme ? JSON.parse(storedTheme) : 'light';
   });
