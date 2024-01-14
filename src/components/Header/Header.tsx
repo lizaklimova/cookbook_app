@@ -1,15 +1,12 @@
-import { FC, useContext } from 'react';
-import { ThemeContext } from 'contexts/themeContext';
+import { FC } from 'react';
 import { MainContainer } from 'components/App/App.styled';
 import ToggleBtn from './ToggleBtn';
 
 const Header: FC = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
-
   return (
     <header>
       <MainContainer>
-        <ToggleBtn $theme={theme} toggleTheme={toggleTheme} />
+        <ToggleBtn />
       </MainContainer>
     </header>
   );

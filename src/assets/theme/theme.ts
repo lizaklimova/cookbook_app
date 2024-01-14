@@ -1,4 +1,8 @@
-export const commonVars = Object.freeze({
+interface Theme {
+  [key: string]: string;
+}
+
+export const commonVars: Theme = Object.freeze({
   accentGreen: '#8BAA36',
   lightGreen: '#EBF3D4',
   white: 'fffff',
@@ -10,8 +14,9 @@ export const commonVars = Object.freeze({
   subtitle: '#3E4462', //сторінка favourites заголовок рецепту
 });
 
-export const lightTheme = Object.freeze({
+export const lightTheme: Theme = Object.freeze({
   ...commonVars,
+  theme: 'light',
   background: '#FAFAFA',
   fill: '#22252A', //кнопка хіро в інпуті
   mainText: '#23262A',
@@ -27,8 +32,9 @@ export const lightTheme = Object.freeze({
   paginationActiveText: '#FAFAFA',
 });
 
-export const darkTheme = Object.freeze({
+export const darkTheme: Theme = Object.freeze({
   ...commonVars,
+  theme: 'dark',
   background: '#1E1F28',
   fill: '#8BAA36',
   mainText: '#FAFAFA',

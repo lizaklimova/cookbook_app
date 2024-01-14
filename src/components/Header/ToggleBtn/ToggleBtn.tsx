@@ -1,28 +1,22 @@
-import { FC, useState } from 'react';
+import { FC, useState, useContext } from 'react';
 import { ThemeSwitcher } from './ToggleBtn.styled';
+import { ThemeContext } from 'contexts/themeContext';
 
-interface ToggleBtnProps {
-  $theme: string;
-  toggleTheme: () => void;
-}
-
-const ToggleBtn: FC<ToggleBtnProps> = ({ $theme, toggleTheme }) => {
-  const [checked, setChecked] = useState(true);
+const ToggleBtn: FC = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+  const [checked, setChecked] = useState(theme === 'light' ? true : false);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(event.target.checked);
+    setChecked(event.target.checked);
     toggleTheme();
   };
 
   return (
-    <div style={{ width: '100px', height: '10px' }}>
-      <ThemeSwitcher
-        $theme={$theme}
-        checked={checked}
-        onChange={handleChange}
-        inputProps={{ 'aria-label': 'controlled' }}
-      />
-    </div>
+    <ThemeSwitcher
+      inputProps={{ 'aria-label': 'ant design' }}
+      checked={checked}
+      onChange={handleChange}
+    />
   );
 };
 

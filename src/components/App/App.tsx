@@ -45,7 +45,7 @@ const NotFoundPage: LazyExoticComponent<ComponentType<any>> = lazy(
 );
 
 const App: FC = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const currentTheme = theme === 'light' ? lightTheme : darkTheme;
 
   return (

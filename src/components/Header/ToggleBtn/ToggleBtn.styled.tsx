@@ -1,50 +1,55 @@
-import styled from 'styled-components';
 import Switch from '@mui/material/Switch';
+import { styled } from '@mui/material/styles';
 
-interface ToggleBtnProps {
-  $theme: string;
+interface ThemeSwitcherProps {
+  checked: boolean;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  inputProps: { 'aria-label': string };
 }
 
-export const ThemeSwitcher = styled(Switch)<ToggleBtnProps>(({ $theme }) => ({
-  width: 42,
-  height: 26,
-  padding: 0,
-
-  '& .MuiSwitch-switchBase': {
+export const ThemeSwitcher = styled(Switch)<ThemeSwitcherProps>(
+  ({ theme }) => ({
+    width: 28,
+    height: 16,
     padding: 0,
-    margin: 2,
-    transitionDuration: '300ms',
-    '&.Mui-checked': {
-      transform: 'translateX(16px)',
-      color: '#fff',
-      '& + .MuiSwitch-track': {
-        backgroundColor: $theme === 'dark' ? '#2ECA45' : '#65C466',
-        opacity: 1,
-        border: 0,
+    display: 'flex',
+    '&:active': {
+      '& .MuiSwitch-thumb': {
+        width: 15,
       },
-      '&.Mui-disabled + .MuiSwitch-track': {
-        opacity: 0.5,
+      '& .MuiSwitch-switchBase.Mui-checked': {
+        transform: 'translateX(9px)',
       },
     },
-    '&.Mui-focusVisible .MuiSwitch-thumb': {
-      color: '#33cf4d',
-      border: '6px solid #fff',
+    '& .MuiSwitch-switchBase': {
+      padding: 2,
+      '&.Mui-checked': {
+        transform: 'translateX(12px)',
+        color: '#fff',
+        '& + .MuiSwitch-track': {
+          opacity: 1,
+          backgroundColor:
+            theme.palette.mode === 'dark' ? '#177ddc' : '#1890ff',
+        },
+      },
     },
-    '&.Mui-disabled .MuiSwitch-thumb': {
-      color: $theme === 'light' ? 'black' : 'grey',
+    '& .MuiSwitch-thumb': {
+      boxShadow: '0 2px 4px 0 rgb(0 35 11 / 20%)',
+      width: 12,
+      height: 12,
+      borderRadius: 6,
+      transition: theme.transitions.create(['width'], {
+        duration: 200,
+      }),
     },
-    '&.Mui-disabled + .MuiSwitch-track': {
-      opacity: $theme === 'light' ? 0.7 : 0.3,
+    '& .MuiSwitch-track': {
+      borderRadius: 16 / 2,
+      opacity: 1,
+      backgroundColor:
+        theme.palette.mode === 'dark'
+          ? 'rgba(255,255,255,.35)'
+          : 'rgba(0,0,0,.25)',
+      boxSizing: 'border-box',
     },
-  },
-  '& .MuiSwitch-thumb': {
-    boxSizing: 'border-box',
-    width: 22,
-    height: 22,
-  },
-  '& .MuiSwitch-track': {
-    borderRadius: 26 / 2,
-    backgroundColor: $theme === 'light' ? '#E9E9EA' : '#39393D',
-    opacity: 1,
-  },
-}));
+  })
+);
