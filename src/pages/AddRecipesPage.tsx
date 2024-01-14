@@ -1,7 +1,15 @@
-import { FC } from 'react';
+import AddRecipeForm from 'components/AddRecipeForm';
+import MainTitle from 'components/MainTitle/MainTitle';
 
-const AddRecipesPage: FC = () => {
-  return <div></div>;
+const AddRecipesPage = () => {
+  return (
+    <>
+      <section>
+        <MainTitle title={'Add recipe'} />
+        <AddRecipeForm />
+      </section>
+    </>
+  );
 };
 
 export default AddRecipesPage;
