@@ -9,10 +9,11 @@ interface ThemeSwitcherProps {
 
 export const ThemeSwitcher = styled(Switch)<ThemeSwitcherProps>(
   ({ theme }) => ({
-    width: 28,
-    height: 16,
+    width: 55,
+    height: 27,
     padding: 0,
     display: 'flex',
+
     '&:active': {
       '& .MuiSwitch-thumb': {
         width: 15,
@@ -22,33 +23,31 @@ export const ThemeSwitcher = styled(Switch)<ThemeSwitcherProps>(
       },
     },
     '& .MuiSwitch-switchBase': {
-      padding: 2,
+      padding: 3,
       '&.Mui-checked': {
-        transform: 'translateX(12px)',
+        transform: 'translateX(100%)',
         color: '#fff',
         '& + .MuiSwitch-track': {
           opacity: 1,
           backgroundColor:
-            theme.palette.mode === 'dark' ? '#177ddc' : '#1890ff',
+            theme.palette.mode === 'light' ? '#ffffff' : '#ffffff',
+          boxShadow: 'inset 0 0 15px rgba(0, 0, 0, 0.3)',
         },
       },
     },
     '& .MuiSwitch-thumb': {
-      boxShadow: '0 2px 4px 0 rgb(0 35 11 / 20%)',
-      width: 12,
-      height: 12,
-      borderRadius: 6,
+      boxShadow: '0 0 5px rgba(0, 0, 0, 0.7)',
+      width: 21,
+      height: 21,
+      borderRadius: 50,
       transition: theme.transitions.create(['width'], {
-        duration: 200,
+        duration: 300,
       }),
     },
     '& .MuiSwitch-track': {
-      borderRadius: 16 / 2,
+      borderRadius: 50 / 2,
       opacity: 1,
-      backgroundColor:
-        theme.palette.mode === 'dark'
-          ? 'rgba(255,255,255,.35)'
-          : 'rgba(0,0,0,.25)',
+      backgroundColor: theme.palette.mode === 'light' ? '#8BAA36' : '#8BAA36',
       boxSizing: 'border-box',
     },
   })

@@ -12,11 +12,12 @@ export const commonVars: Theme = Object.freeze({
   grey: '#D9D9D9', //заглушки, кнопки редагування профілю
   title: '#001833', //основні заголовки світлої теми
   subtitle: '#3E4462', //сторінка favourites заголовок рецепту
+
+  easedTransition: '350ms ease-in-out',
 });
 
 export const lightTheme: Theme = Object.freeze({
   ...commonVars,
-  theme: 'light',
   background: '#FAFAFA',
   fill: '#22252A', //кнопка хіро в інпуті
   mainText: '#23262A',
@@ -34,7 +35,6 @@ export const lightTheme: Theme = Object.freeze({
 
 export const darkTheme: Theme = Object.freeze({
   ...commonVars,
-  theme: 'dark',
   background: '#1E1F28',
   fill: '#8BAA36',
   mainText: '#FAFAFA',
