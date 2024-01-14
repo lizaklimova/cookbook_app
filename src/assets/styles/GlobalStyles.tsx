@@ -14,6 +14,7 @@ export const GlobalStyles = createGlobalStyle`
   font-size: 14px;
   line-height: 1.29;
   margin: 0;
+  
   color: ${({ theme }) => theme.mainText};
   background-color: ${({ theme }) => theme.background};
   transition: ${({ theme }) =>
