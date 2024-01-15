@@ -1,4 +1,4 @@
-import AddRecipeForm from 'components/AddRecipeForm';
+import AddRecipeForm from 'components/AddRecipe';
 import MainTitle from 'components/MainTitle/MainTitle';
 
 const AddRecipesPage = () => {
