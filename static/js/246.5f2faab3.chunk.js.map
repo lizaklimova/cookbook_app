@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/246.5f2faab3.chunk.js","mappings":"uKAEA,MAIA,EAJ2BA,KAClBC,EAAAA,EAAAA,KAAA,S","sources":["pages/AddRecipesPage.tsx"],"sourcesContent":["import { FC } from 'react';\n\nconst AddRecipesPage: FC = () => {\n  return <div></div>;\n};\n\nexport default AddRecipesPage;\n"],"names":["AddRecipesPage","_jsx"],"sourceRoot":""}
