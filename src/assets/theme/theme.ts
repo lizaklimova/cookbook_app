@@ -16,7 +16,7 @@ const commonVars: Theme = Object.freeze({
   grey: '#D9D9D9', //заглушки, кнопки редагування профілю
   titleCommon: '#001833', //основні заголовки світлої теми
   subtitleCommon: '#3E4462', //сторінка favourites заголовок рецепту
-
+  lightOpacity: 'rgba(250,250,250,',
   easedTransition: '350ms ease-in-out',
 });
 
