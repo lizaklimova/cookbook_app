@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from 'assets/styles/GlobalStyles';
 import useTheme from 'hooks/useTheme';
 import SharedLayout from 'layout/SharedLayout';
-import WellcomePage from 'pages/WellcomePage';
+import WelcomePage from 'pages/WelcomePage';
 
 const RegisterPage: LazyExoticComponent<ComponentType<any>> = lazy(
   () => import('pages/RegisterPage')
@@ -62,7 +62,7 @@ const App: FC = () => {
       </header>
 
       <Routes>
-        <Route path="/" element={<WellcomePage />} />
+        <Route path="/" element={<WelcomePage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
 

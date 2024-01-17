@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 const Loader: FC = () => {
-  return <div></div>;
+  return <div>...Loading</div>;
 };
 
 export default Loader;
