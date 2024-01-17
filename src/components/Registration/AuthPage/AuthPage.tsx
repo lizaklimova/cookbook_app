@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import {
   authMob1x,
   authMob2x,
@@ -7,19 +7,19 @@ import {
   authDesk1x,
   authDesk2x,
 } from 'assets/images/authorization';
-import { MainContainer } from 'components/App/App.styled';
-import RegisterForm from '../RegisterForm/RegisterForm';
-import InputField from '../InputField/InputField';
 import {
   AuthPgContainer,
   AuthPicFormWrap,
   AuthPicWrap,
   AuthPgDecorElem,
   AuthFormLinkWrap,
-  AuthLink,
 } from './AuthPage.styled';
 
-const AuthPage: FC = () => {
+interface AuthPageProps {
+  children: ReactNode;
+}
+
+const AuthPage: FC<AuthPageProps> = ({ children }) => {
   return (
     <>
       <AuthPgContainer>
@@ -43,15 +43,7 @@ const AuthPage: FC = () => {
           <img src={authMob1x} alt="Authentication" />
         </AuthPicWrap>
 
-        <AuthFormLinkWrap>
-          <RegisterForm title="Registration" text="Sign up">
-            <InputField label="name" icon="user" type="text" />
-            <InputField label="email" icon="mail" type="email" />
-            <InputField label="password" icon="lock" type="password" />
-          </RegisterForm>
-
-          <AuthLink href={'/login'}>Sign in</AuthLink>
-        </AuthFormLinkWrap>
+        <AuthFormLinkWrap>{children}</AuthFormLinkWrap>
       </AuthPicFormWrap>
     </>
   );

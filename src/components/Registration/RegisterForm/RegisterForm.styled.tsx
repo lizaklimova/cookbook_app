@@ -42,19 +42,23 @@ export const AuthForm = styled.form`
   }
 `;
 
-export const AuthFormTitle = styled.h2`
+interface AuthTitleProps {
+  $login?: boolean;
+}
+
+export const AuthFormTitle = styled.h2<AuthTitleProps>`
   color: var(--light);
   font-size: 24px;
   font-weight: 600;
   line-height: 1.17;
   letter-spacing: -0.48px;
-  margin-bottom: 18px;
+  margin-bottom: ${({ $login }) => ($login ? '40px' : '18px')};
 
   @media screen and (min-width: 768px) {
     font-size: 28px;
     line-height: 1.07;
     letter-spacing: -0.56px;
-    margin-bottom: 32px;
+    ${({ $login }) => ($login ? '50px' : '32px')};
   }
 `;
 

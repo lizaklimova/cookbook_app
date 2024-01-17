@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { bgElemMob, bgElemTab, bgElemDesk } from 'assets/images/authorization';
+import { Link } from 'react-router-dom';
 
 export const AuthPgContainer = styled.div`
   position: absolute;
@@ -84,7 +85,7 @@ export const AuthFormLinkWrap = styled.div`
   }
 `;
 
-export const AuthLink = styled.a`
+export const AuthLink = styled(Link)`
   display: block;
   margin-bottom: 10px;
   color: var(--light);
