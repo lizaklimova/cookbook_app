@@ -20,9 +20,10 @@ export const AuthPicFormWrap = styled.div`
   justify-content: center;
   width: 100%;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1440px) {
     flex-direction: row;
-    justify-content: center;
+    align-items: start;
+    gap: 115px;
   }
 `;
 
@@ -34,7 +35,18 @@ export const AuthPicWrap = styled.picture`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+
+    img {
+      margin-top: 15px;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    justify-content: end;
+
+    img {
+      margin-top: 0;
+    }
   }
 `;
 
@@ -56,5 +68,33 @@ export const AuthPgDecorElem = styled.div`
   @media screen and (min-width: 1440px) {
     background-image: url(${bgElemDesk});
     height: 325px;
+  }
+`;
+
+export const AuthFormLinkWrap = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (min-width: 1440px) {
+    max-width: 550px;
+    align-items: start;
+  }
+`;
+
+export const AuthLink = styled.a`
+  display: block;
+  margin-bottom: 10px;
+  color: var(--light);
+  text-decoration: underline;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    align-self: center;
   }
 `;

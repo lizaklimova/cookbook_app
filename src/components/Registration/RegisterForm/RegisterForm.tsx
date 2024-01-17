@@ -1,6 +1,6 @@
 import { FC, FormEvent, ReactNode } from 'react';
-import { MainContainer } from 'components/App/App.styled';
 import {
+  AuthPositionWrap,
   AuthFormContainer,
   AuthForm,
   AuthFormTitle,
@@ -22,7 +22,7 @@ const RegisterForm: FC<RegisterFormProps> = ({ title, text, children }) => {
   };
 
   return (
-    <MainContainer>
+    <AuthPositionWrap>
       <AuthFormContainer>
         <AuthFormTitle>{title}</AuthFormTitle>
         <AuthForm onSubmit={onAuthSubmit}>
@@ -30,7 +30,7 @@ const RegisterForm: FC<RegisterFormProps> = ({ title, text, children }) => {
           <AuthFormBtn type="submit">{text}</AuthFormBtn>
         </AuthForm>
       </AuthFormContainer>
-    </MainContainer>
+    </AuthPositionWrap>
   );
 };
 

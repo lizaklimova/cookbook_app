@@ -15,6 +15,8 @@ import {
   AuthPicFormWrap,
   AuthPicWrap,
   AuthPgDecorElem,
+  AuthFormLinkWrap,
+  AuthLink,
 } from './AuthPage.styled';
 
 const AuthPage: FC = () => {
@@ -24,31 +26,33 @@ const AuthPage: FC = () => {
         <AuthPgDecorElem />
       </AuthPgContainer>
 
-      <MainContainer>
-        <AuthPicFormWrap>
-          <AuthPicWrap>
-            <source
-              media="(max-width: 767px)"
-              srcSet={`${authMob1x} 1x, ${authMob2x} 2x`}
-            />
-            <source
-              media="(max-width: 1439px)"
-              srcSet={`${authTab1x} 1x, ${authTab2x} 2x`}
-            />
-            <source
-              media="(min-width: 1440px)"
-              srcSet={`${authDesk1x} 1x, ${authDesk2x} 2x`}
-            />
-            <img src={authMob1x} alt="Authentication" />
-          </AuthPicWrap>
+      <AuthPicFormWrap>
+        <AuthPicWrap>
+          <source
+            media="(max-width: 767px)"
+            srcSet={`${authMob1x} 1x, ${authMob2x} 2x`}
+          />
+          <source
+            media="(max-width: 1439px)"
+            srcSet={`${authTab1x} 1x, ${authTab2x} 2x`}
+          />
+          <source
+            media="(min-width: 1440px)"
+            srcSet={`${authDesk1x} 1x, ${authDesk2x} 2x`}
+          />
+          <img src={authMob1x} alt="Authentication" />
+        </AuthPicWrap>
 
+        <AuthFormLinkWrap>
           <RegisterForm title="Registration" text="Sign up">
             <InputField label="name" icon="user" type="text" />
             <InputField label="email" icon="mail" type="email" />
             <InputField label="password" icon="lock" type="password" />
           </RegisterForm>
-        </AuthPicFormWrap>
-      </MainContainer>
+
+          <AuthLink href={'/login'}>Sign in</AuthLink>
+        </AuthFormLinkWrap>
+      </AuthPicFormWrap>
     </>
   );
 };
