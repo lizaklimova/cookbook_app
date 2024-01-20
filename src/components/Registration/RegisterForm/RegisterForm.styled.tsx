@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface AuthTitleProps {
+  $login?: boolean;
+}
+
 export const AuthPositionWrap = styled.div`
   width: 100%;
 
@@ -41,10 +45,6 @@ export const AuthForm = styled.form`
     gap: 24px;
   }
 `;
-
-interface AuthTitleProps {
-  $login?: boolean;
-}
 
 export const AuthFormTitle = styled.h2<AuthTitleProps>`
   color: var(--light);

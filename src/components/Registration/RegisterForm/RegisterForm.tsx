@@ -1,4 +1,9 @@
-import { FC, FormEvent, ReactNode } from 'react';
+import { FC, FormEvent } from 'react';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from 'redux/store';
+import { register } from '../../../redux/auth/operations';
+import { Credentials } from 'components/Registration/RegisterForm/registerFormType';
+import { RegisterFormProps } from './registerFormType';
 import {
   AuthPositionWrap,
   AuthFormContainer,
@@ -7,18 +12,18 @@ import {
   AuthFormBtn,
 } from './RegisterForm.styled';
 
-interface RegisterFormProps {
-  title: string;
-  text: string;
-  children: ReactNode;
-}
-
 const RegisterForm: FC<RegisterFormProps> = ({ title, text, children }) => {
+  const dispatch: AppDispatch = useDispatch();
+
   const onAuthSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
-    console.log(data);
+    const credentials: Credentials = {
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      password: formData.get('password') as string,
+    };
+    dispatch(register(credentials));
   };
 
   return (

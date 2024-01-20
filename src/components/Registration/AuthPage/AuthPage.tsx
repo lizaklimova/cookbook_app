@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 import {
   authMob1x,
   authMob2x,
@@ -14,10 +14,7 @@ import {
   AuthPgDecorElem,
   AuthFormLinkWrap,
 } from './AuthPage.styled';
-
-interface AuthPageProps {
-  children: ReactNode;
-}
+import { AuthPageProps } from './authPageType';
 
 const AuthPage: FC<AuthPageProps> = ({ children }) => {
   return (

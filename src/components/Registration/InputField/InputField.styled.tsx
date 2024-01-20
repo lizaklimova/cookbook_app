@@ -102,7 +102,7 @@ export const IndicatorIconWrap = styled.div`
 `;
 
 export const ValidationMsg = styled.p`
-  font-size: 12px;
+  font-size: 11px;
   margin-top: 5px;
 
   &.success {
@@ -114,10 +114,10 @@ export const ValidationMsg = styled.p`
   }
 
   &.warning {
-    color: (--warning);
+    color: var(--warning);
   }
 
   @media screen and (min-width: 768px) {
-    font-size: 14px;
+    font-size: 12px;
   }
 `;
