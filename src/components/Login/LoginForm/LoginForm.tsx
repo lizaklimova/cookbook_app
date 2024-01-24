@@ -1,4 +1,4 @@
-import { FC, FormEvent, useState } from 'react';
+import { FC, FormEvent } from 'react';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from 'redux/store';
 import { LoginFormProps, CredentialsLog } from './loginFormTypes';
