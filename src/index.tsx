@@ -10,10 +10,22 @@ const root = createRoot(rootElement as HTMLElement);
 
 root.render(
   <StrictMode>
+<<<<<<< Updated upstream
     <BrowserRouter basename="/cookbook_app">
       <ThemeProvider>
         <App />
       </ThemeProvider>
     </BrowserRouter>
+=======
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter basename="/cookbook_app">
+          <ThemeProvider>
+            <App />
+          </ThemeProvider>
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
+>>>>>>> Stashed changes
   </StrictMode>
 );
