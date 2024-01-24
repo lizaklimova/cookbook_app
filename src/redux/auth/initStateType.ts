@@ -4,8 +4,10 @@ export interface AuthState {
     email: string | null;
   };
   token: string | null;
+  isRegistered: boolean;
   isLoggedIn: boolean;
   isRefreshing: boolean;
+  isPageReloaded: boolean;
 }
 
 export interface LoggedInUser {

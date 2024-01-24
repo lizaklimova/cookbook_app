@@ -1,14 +1,19 @@
-import { FC, lazy, LazyExoticComponent, ComponentType } from 'react';
-import { Routes, Route, NavLink } from 'react-router-dom';
+import { FC, lazy, LazyExoticComponent, ComponentType, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Toaster } from 'react-hot-toast';
 import { ThemeProvider } from 'styled-components';
+import { AppDispatch } from 'redux/store';
+import { refreshUser, logOut } from '../../redux/auth/operations';
 import { GlobalStyles } from 'assets/styles/GlobalStyles';
 import useTheme from 'hooks/useTheme';
+import useAuth from 'hooks/useAuth';
+import { RestrictedRoute } from 'routes/RestrictedRoute';
+import { PrivateRoute } from 'routes/PrivateRoute';
 import RegisterPage from 'pages/RegisterPage';
 import LoginPage from 'pages/LoginPage';
 import SharedLayout from 'layout/SharedLayout';
 import WelcomePage from 'pages/WelcomePage';
-import { RestrictedRoute } from 'routes/RestrictedRoute';
-import { PrivateRoute } from 'routes/PrivateRoute';
 
 const MainPage: LazyExoticComponent<ComponentType<any>> = lazy(
   () => import('pages/MainPage')
@@ -36,28 +41,24 @@ const NotFoundPage: LazyExoticComponent<ComponentType<any>> = lazy(
 );
 
 const App: FC = () => {
+  const dispatch: AppDispatch = useDispatch();
   const { currentTheme } = useTheme();
+  const { isRefreshing, isLoggedIn } = useAuth();
 
-  return (
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  const loggingOut = () => {
+    dispatch(logOut());
+  };
+
+  return isRefreshing ? (
+    <div>Refreshing... </div>
+  ) : (
     <ThemeProvider theme={currentTheme}>
       <GlobalStyles />
-      <header>
-        <nav
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            gap: '30px',
-          }}
-        >
-          <NavLink to="/categories/beef">Categories</NavLink>
-          <NavLink to="add">Add recipes</NavLink>
-          <NavLink to="my">My recipes</NavLink>
-          <NavLink to="favorite">Favorites</NavLink>
-          <NavLink to="/shopping-list">Shopping list</NavLink>
-          <NavLink to="search">Search</NavLink>
-        </nav>
-      </header>
+      <Toaster position="top-center" />
 
       <Routes>
         <Route path="/" element={<WelcomePage />} />
@@ -116,6 +117,20 @@ const App: FC = () => {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
+
+      {isLoggedIn && (
+        <button
+          onClick={loggingOut}
+          style={{
+            backgroundColor: 'red',
+            padding: '15px',
+            borderRadius: '30px',
+            margin: '15px',
+          }}
+        >
+          Logout
+        </button>
+      )}
     </ThemeProvider>
   );
 };

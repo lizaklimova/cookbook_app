@@ -84,7 +84,7 @@ export const AuthInputIcon = styled.svg`
   opacity: 0.8;
 
   @media screen and (min-width: 768px) {
-    top: 30px;
+    top: 29px;
     width: 24px;
     height: 24px;
   }

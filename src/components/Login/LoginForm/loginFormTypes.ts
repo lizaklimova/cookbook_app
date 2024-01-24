@@ -1,13 +1,13 @@
 import { ReactNode } from 'react';
 
-export interface RegisterFormProps {
+export interface LoginFormProps {
   title: string;
   text: string;
+  login?: boolean;
   children: ReactNode;
 }
 
-export interface Credentials {
-  name?: string;
+export interface CredentialsLog {
   email: string;
   password: string;
 }

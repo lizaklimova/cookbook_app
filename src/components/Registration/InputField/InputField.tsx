@@ -66,6 +66,7 @@ const InputField: FC<InputFieldProps> = ({
         name={label}
         placeholder={label}
         onChange={onInputChange}
+        required
       />
       <ValidationMsg className={actualClassName}>{validationMsg}</ValidationMsg>
       <AuthInputIcon width={18} height={18}>
