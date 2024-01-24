@@ -1,4 +1,8 @@
-import { FC, FormEvent, ReactNode } from 'react';
+import { FC, FormEvent, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from 'redux/store';
+import { LoginFormProps, CredentialsLog } from './loginFormTypes';
+import { logIn } from '../../../redux/auth/operations';
 import {
   AuthForm,
   AuthFormBtn,
@@ -7,26 +11,25 @@ import {
   AuthPositionWrap,
 } from 'components/Registration/RegisterForm/RegisterForm.styled';
 
-interface LoginFormProps {
-  title: string;
-  text: string;
-  login?: boolean;
-  children: ReactNode;
-}
-
 const LoginForm: FC<LoginFormProps> = ({ title, text, login, children }) => {
-  const onLogSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const dispatch: AppDispatch = useDispatch();
+
+  const onLogInSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
-    console.log(data);
+    const loginCredentials: CredentialsLog = {
+      email: formData.get('email') as string,
+      password: formData.get('password') as string,
+    };
+
+    dispatch(logIn(loginCredentials));
   };
 
   return (
     <AuthPositionWrap>
       <AuthFormContainer>
         <AuthFormTitle $login={login}>{title}</AuthFormTitle>
-        <AuthForm onSubmit={onLogSubmit}>
+        <AuthForm onSubmit={onLogInSubmit}>
           {children}
           <AuthFormBtn type="submit">{text}</AuthFormBtn>
         </AuthForm>

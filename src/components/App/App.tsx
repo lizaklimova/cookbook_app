@@ -1,17 +1,20 @@
-import { FC, lazy, LazyExoticComponent, ComponentType } from 'react';
-import { Routes, Route, NavLink } from 'react-router-dom';
+import { FC, lazy, LazyExoticComponent, ComponentType, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Toaster } from 'react-hot-toast';
 import { ThemeProvider } from 'styled-components';
+import { AppDispatch } from 'redux/store';
+import { refreshUser, logOut } from '../../redux/auth/operations';
 import { GlobalStyles } from 'assets/styles/GlobalStyles';
 import useTheme from 'hooks/useTheme';
+import useAuth from 'hooks/useAuth';
+import { RestrictedRoute } from 'routes/RestrictedRoute';
+import { PrivateRoute } from 'routes/PrivateRoute';
+import RegisterPage from 'pages/RegisterPage';
+import LoginPage from 'pages/LoginPage';
 import SharedLayout from 'layout/SharedLayout';
 import WelcomePage from 'pages/WelcomePage';
 
-const RegisterPage: LazyExoticComponent<ComponentType<any>> = lazy(
-  () => import('pages/RegisterPage')
-);
-const LoginPage: LazyExoticComponent<ComponentType<any>> = lazy(
-  () => import('pages/LoginPage')
-);
 const MainPage: LazyExoticComponent<ComponentType<any>> = lazy(
   () => import('pages/MainPage')
 );
@@ -38,48 +41,96 @@ const NotFoundPage: LazyExoticComponent<ComponentType<any>> = lazy(
 );
 
 const App: FC = () => {
+  const dispatch: AppDispatch = useDispatch();
   const { currentTheme } = useTheme();
+  const { isRefreshing, isLoggedIn } = useAuth();
 
-  return (
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  const loggingOut = () => {
+    dispatch(logOut());
+  };
+
+  return isRefreshing ? (
+    <div>Refreshing... </div>
+  ) : (
     <ThemeProvider theme={currentTheme}>
       <GlobalStyles />
-      <header>
-        <nav
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            gap: '30px',
-          }}
-        >
-          <NavLink to="/categories/beef">Categories</NavLink>
-          <NavLink to="add">Add recipes</NavLink>
-          <NavLink to="my">My recipes</NavLink>
-          <NavLink to="favorite">Favorites</NavLink>
-          <NavLink to="/shopping-list">Shopping list</NavLink>
-          <NavLink to="search">Search</NavLink>
-        </nav>
-      </header>
+      <Toaster position="top-center" />
 
       <Routes>
         <Route path="/" element={<WelcomePage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route
+          path="/register"
+          element={
+            <RestrictedRoute component={RegisterPage} redirectTo="/main" />
+          }
+        />
+        <Route
+          path="/login"
+          element={<RestrictedRoute component={LoginPage} redirectTo="/main" />}
+        />
 
         <Route path="/" element={<SharedLayout />}>
-          <Route index element={<MainPage />} />
+          <Route
+            path="main"
+            element={<PrivateRoute component={MainPage} redirectTo="/login" />}
+          />
           <Route
             path="/categories/:categoryName"
-            element={<CategoriesPage />}
+            element={
+              <PrivateRoute component={CategoriesPage} redirectTo="/login" />
+            }
           />
-          <Route path="/add" element={<AddRecipesPage />} />
-          <Route path="/my" element={<MyRecipesPage />} />
-          <Route path="/favorite" element={<FavoritesPage />} />
-          <Route path="/shopping-list" element={<ShoppingListPage />} />
-          <Route path="/search" element={<SearchPage />} />
+          <Route
+            path="add"
+            element={
+              <PrivateRoute component={AddRecipesPage} redirectTo="/login" />
+            }
+          />
+          <Route
+            path="my"
+            element={
+              <PrivateRoute component={MyRecipesPage} redirectTo="/login" />
+            }
+          />
+          <Route
+            path="favorite"
+            element={
+              <PrivateRoute component={FavoritesPage} redirectTo="/login" />
+            }
+          />
+          <Route
+            path="shopping-list"
+            element={
+              <PrivateRoute component={ShoppingListPage} redirectTo="/login" />
+            }
+          />
+          <Route
+            path="search"
+            element={
+              <PrivateRoute component={SearchPage} redirectTo="/login" />
+            }
+          />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
+
+      {isLoggedIn && (
+        <button
+          onClick={loggingOut}
+          style={{
+            backgroundColor: 'red',
+            padding: '15px',
+            borderRadius: '30px',
+            margin: '15px',
+          }}
+        >
+          Logout
+        </button>
+      )}
     </ThemeProvider>
   );
 };
