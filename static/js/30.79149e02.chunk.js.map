@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/30.79149e02.chunk.js","mappings":"qKAEA,MAIA,EAJsBA,KACbC,EAAAA,EAAAA,KAAA,S","sources":["pages/LoginPage.tsx"],"sourcesContent":["import { FC } from 'react';\n\nconst LoginPage: FC = () => {\n  return <div></div>;\n};\n\nexport default LoginPage;\n"],"names":["LoginPage","_jsx"],"sourceRoot":""}
