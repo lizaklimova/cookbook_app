@@ -1,9 +1,5 @@
-import { FC, FormEvent } from 'react';
-
-interface RecipeDescriptionFieldsProps {
-  value: string;
-  onSubmit: (e: FormEvent, data: unknown) => void;
-}
+import { FC } from 'react';
+import { RecipeDescriptionFieldsProps } from '../addRecipeTypes';
 
 // time 5mins-120mins. Interval 5mins
 // selects must have visible 6 options, other scroll

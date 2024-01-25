@@ -8,6 +8,7 @@ export interface AuthState {
   isLoggedIn: boolean;
   isRefreshing: boolean;
   isPageReloaded: boolean;
+  isLoading: boolean;
 }
 
 export interface LoggedInUser {

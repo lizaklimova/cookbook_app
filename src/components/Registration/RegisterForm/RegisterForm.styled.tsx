@@ -63,6 +63,9 @@ export const AuthFormTitle = styled.h2<AuthTitleProps>`
 `;
 
 export const AuthFormBtn = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 16px;
   line-height: 1.13;
   width: 100%;

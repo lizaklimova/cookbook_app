@@ -1,4 +1,5 @@
 import { ChangeEvent, FC, useState } from 'react';
+import { IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5';
 import sprite from 'assets/icons/sprite.svg';
 import {
   AuthInputContainer,
@@ -6,6 +7,7 @@ import {
   AuthInputIcon,
   IndicatorIconWrap,
   ValidationMsg,
+  ShowPasswordBtn,
 } from './InputField.styled';
 import { InputFieldProps } from './inputType';
 import { determineInputIcon } from 'helpers/determineInputIcon';
@@ -22,9 +24,17 @@ const InputField: FC<InputFieldProps> = ({
   const [isError, setIsError] = useState<boolean>(false);
   const [isWarn, setIsWarn] = useState<boolean>(false);
   const [actualClassName, setActualClassName] = useState<string>('');
+  const [isPasswordShown, setIsPasswordShown] = useState<boolean>(false);
+  const [showPasswordButton, setShowPasswordButton] = useState<string>('');
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
+
+    if (value && type === 'password') {
+      setShowPasswordButton('is-shown');
+    } else {
+      setShowPasswordButton('');
+    }
 
     if (register) {
       validationSchema
@@ -58,21 +68,43 @@ const InputField: FC<InputFieldProps> = ({
     }
   };
 
+  const onInputBlur = () => {
+    if (!showPasswordButton && type === 'password') {
+      setShowPasswordButton('');
+      setValidationMsg('');
+      setIsError(false);
+      setActualClassName('');
+    }
+  };
+
+  const determineInputType = () => (!isPasswordShown ? type : 'text');
+
   return (
     <AuthInputContainer>
       <AuthInputField
         className={actualClassName}
-        type={type}
+        type={determineInputType()}
         name={label}
         placeholder={label}
         onChange={onInputChange}
+        onBlur={onInputBlur}
+        autoComplete={label === 'name' ? 'off' : 'on'}
         required
       />
+      {type === 'password' && (
+        <ShowPasswordBtn
+          $action={register}
+          className={showPasswordButton}
+          onClick={() => setIsPasswordShown(prev => !prev)}
+        >
+          {isPasswordShown ? <IoEyeOffOutline /> : <IoEyeOutline />}
+        </ShowPasswordBtn>
+      )}
       <ValidationMsg className={actualClassName}>{validationMsg}</ValidationMsg>
       <AuthInputIcon width={18} height={18}>
         <use href={`${sprite}#icon-${icon}`}></use>
       </AuthInputIcon>
-      <IndicatorIconWrap>
+      <IndicatorIconWrap $action={register}>
         <svg width={20} height={20}>
           <use href={determineInputIcon(isSuccess, isError, isWarn)}></use>
         </svg>

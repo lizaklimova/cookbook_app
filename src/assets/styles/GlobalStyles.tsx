@@ -49,6 +49,22 @@ export const GlobalStyles = createGlobalStyle`
   color: var(--mainText);
   background-color: var(--background);
   transition: background-color var(--easedTransition), color var(--easedTransition);
+  scrollbar-width: thin;
+  scrollbar-color: var(--accentGreen);
+  overflow-x: hidden;
+}
+
+ ::-webkit-scrollbar {
+  width: 10px;
+} 
+
+::-webkit-scrollbar-thumb {
+  border-radius:10px;
+  background-color: var(--accentGreen);
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--mainText);
 }
 
 h1,

@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 import { AppDispatch } from 'redux/store';
 import { LoginFormProps, CredentialsLog } from './loginFormTypes';
 import { logIn } from '../../../redux/auth/operations';
+import useAuth from 'hooks/useAuth';
+import SmallSpinner from 'components/Loader/SmallSpinner/SmallSpinner';
 import {
   AuthForm,
   AuthFormBtn,
@@ -13,6 +15,7 @@ import {
 
 const LoginForm: FC<LoginFormProps> = ({ title, text, login, children }) => {
   const dispatch: AppDispatch = useDispatch();
+  const { isLoading } = useAuth();
 
   const onLogInSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -31,7 +34,9 @@ const LoginForm: FC<LoginFormProps> = ({ title, text, login, children }) => {
         <AuthFormTitle $login={login}>{title}</AuthFormTitle>
         <AuthForm onSubmit={onLogInSubmit}>
           {children}
-          <AuthFormBtn type="submit">{text}</AuthFormBtn>
+          <AuthFormBtn type="submit">
+            {isLoading ? <SmallSpinner /> : text}
+          </AuthFormBtn>
         </AuthForm>
       </AuthFormContainer>
     </AuthPositionWrap>
