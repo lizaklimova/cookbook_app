@@ -6,8 +6,17 @@ export const AuthPgContainer = styled.div`
   position: absolute;
   z-index: -1;
   width: 100vw;
-  height: 100vh;
-  background-color: var(--light);
+  min-height: 100vh;
+  padding: 15px 0;
+  background: var(--light) url(${bgElemMob}) no-repeat center 300px / cover;
+
+  @media screen and (min-width: 768px) {
+    background-image: url(${bgElemTab});
+  }
+
+  @media screen and (min-width: 1440px) {
+    background-image: url(${bgElemDesk});
+  }
 `;
 
 export const AuthPicFormWrap = styled.div`
@@ -21,7 +30,14 @@ export const AuthPicFormWrap = styled.div`
   justify-content: center;
   width: 100%;
 
+  @media screen and (min-width: 768px) {
+    position: static;
+    transform: unset;
+  }
+
   @media screen and (min-width: 1440px) {
+    position: absolute;
+    transform: translate(-50%, -50%);
     flex-direction: row;
     align-items: start;
     gap: 115px;
@@ -48,27 +64,6 @@ export const AuthPicWrap = styled.picture`
     img {
       margin-top: 0;
     }
-  }
-`;
-
-export const AuthPgDecorElem = styled.div`
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 100vw;
-  height: 63%;
-  background-image: url(${bgElemMob});
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  @media screen and (min-width: 768px) {
-    background-image: url(${bgElemTab});
-    height: 606px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    background-image: url(${bgElemDesk});
-    height: 325px;
   }
 `;
 

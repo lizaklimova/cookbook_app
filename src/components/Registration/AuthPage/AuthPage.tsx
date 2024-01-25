@@ -11,18 +11,13 @@ import {
   AuthPgContainer,
   AuthPicFormWrap,
   AuthPicWrap,
-  AuthPgDecorElem,
   AuthFormLinkWrap,
 } from './AuthPage.styled';
 import { AuthPageProps } from './authPageType';
 
 const AuthPage: FC<AuthPageProps> = ({ children }) => {
   return (
-    <>
-      <AuthPgContainer>
-        <AuthPgDecorElem />
-      </AuthPgContainer>
-
+    <AuthPgContainer>
       <AuthPicFormWrap>
         <AuthPicWrap>
           <source
@@ -42,7 +37,7 @@ const AuthPage: FC<AuthPageProps> = ({ children }) => {
 
         <AuthFormLinkWrap>{children}</AuthFormLinkWrap>
       </AuthPicFormWrap>
-    </>
+    </AuthPgContainer>
   );
 };
 
