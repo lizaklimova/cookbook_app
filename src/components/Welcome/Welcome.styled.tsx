@@ -88,16 +88,17 @@ export const MainBtnWrap = styled.div`
 `;
 
 export const MainRegisterBtn = styled.button`
+  border: 2px solid var(--accentGreen);
   border-radius: 25px 60px;
   padding: 15px 24px;
   color: var(--light);
   background-color: var(--accentGreen);
-  transition: outline var(--easedTransition), color var(--easedTransition),
+  transition: border-color var(--easedTransition), color var(--easedTransition),
     background-color var(--easedTransition);
 
   &:hover,
   &:focus {
-    outline: 2px solid var(--accentGreen);
+    border-color: var(--accentGreen);
     color: var(--accentGreen);
     background-color: transparent;
   }
@@ -109,16 +110,16 @@ export const MainRegisterBtn = styled.button`
 `;
 
 export const MainLoginBtn = styled.button`
-  outline: 2px solid var(--light);
+  border: 2px solid var(--light);
   border-radius: 25px 60px;
   padding: 15px 24px;
   color: var(--light);
   background-color: transparent;
-  transition: outline var(--easedTransition), color var(--easedTransition);
+  transition: border-color var(--easedTransition), color var(--easedTransition);
 
   &:hover,
   &:focus {
-    outline: 2px solid var(--accentGreen);
+    border-color: var(--accentGreen);
     color: var(--accentGreen);
   }
 
