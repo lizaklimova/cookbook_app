@@ -20,16 +20,14 @@ const Main: FC = () => {
         icon: '👨🏻‍🍳',
         style: {
           borderRadius: '10px',
-          background,
-          color: mainText,
+          background: '#8BAA36',
+          color: '#fff',
         },
       };
 
-      setTimeout(() => {
-        toast(`Welcome, ${name} 💚`, welcomeToasterOpts);
-      }, 1000);
+      toast(`Welcome, ${name} 💚`, welcomeToasterOpts);
     }
-  }, [name, isLoggedIn, isPageReloaded, background, mainText]);
+  }, [name, isLoggedIn, isPageReloaded]);
 
   return <div>{/* це сторінка, де хіро */}</div>;
 };
