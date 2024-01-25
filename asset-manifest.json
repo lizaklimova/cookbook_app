@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/cookbook_app/static/css/main.7cda0caf.css",
-    "main.js": "/cookbook_app/static/js/main.06326a56.js",
+    "main.js": "/cookbook_app/static/js/main.d1b3b8fb.js",
     "static/js/211.2ec19081.chunk.js": "/cookbook_app/static/js/211.2ec19081.chunk.js",
     "static/js/839.23638242.chunk.js": "/cookbook_app/static/js/839.23638242.chunk.js",
     "static/js/303.082a93fe.chunk.js": "/cookbook_app/static/js/303.082a93fe.chunk.js",
@@ -27,7 +27,7 @@
     "static/media/sprite.svg": "/cookbook_app/static/media/sprite.b993ae240e786f68124d13d971cb38bd.svg",
     "index.html": "/cookbook_app/index.html",
     "main.7cda0caf.css.map": "/cookbook_app/static/css/main.7cda0caf.css.map",
-    "main.06326a56.js.map": "/cookbook_app/static/js/main.06326a56.js.map",
+    "main.d1b3b8fb.js.map": "/cookbook_app/static/js/main.d1b3b8fb.js.map",
     "211.2ec19081.chunk.js.map": "/cookbook_app/static/js/211.2ec19081.chunk.js.map",
     "839.23638242.chunk.js.map": "/cookbook_app/static/js/839.23638242.chunk.js.map",
     "303.082a93fe.chunk.js.map": "/cookbook_app/static/js/303.082a93fe.chunk.js.map",
@@ -39,6 +39,6 @@
   },
   "entrypoints": [
     "static/css/main.7cda0caf.css",
-    "static/js/main.06326a56.js"
+    "static/js/main.d1b3b8fb.js"
   ]
 }
