@@ -7,6 +7,7 @@ import useAuth from 'hooks/useAuth';
 import { register } from '../../../redux/auth/operations';
 import { Credentials } from 'components/Registration/RegisterForm/registerFormType';
 import { RegisterFormProps } from './registerFormType';
+import SmallSpinner from 'components/Loader/SmallSpinner';
 import {
   AuthPositionWrap,
   AuthFormContainer,
@@ -18,7 +19,7 @@ import {
 const RegisterForm: FC<RegisterFormProps> = ({ title, text, children }) => {
   const dispatch: AppDispatch = useDispatch();
   const navigate = useNavigate();
-  const { isRegistered } = useAuth();
+  const { isRegistered, isLoading } = useAuth();
 
   const onAuthSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -50,7 +51,9 @@ const RegisterForm: FC<RegisterFormProps> = ({ title, text, children }) => {
         <AuthFormTitle>{title}</AuthFormTitle>
         <AuthForm onSubmit={onAuthSubmit}>
           {children}
-          <AuthFormBtn type="submit">{text}</AuthFormBtn>
+          <AuthFormBtn type="submit">
+            {isLoading ? <SmallSpinner /> : text}
+          </AuthFormBtn>
         </AuthForm>
       </AuthFormContainer>
     </AuthPositionWrap>

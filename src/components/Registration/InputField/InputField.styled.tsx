@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+type ShowPasswordProps = {
+  $action?: boolean;
+};
+
 export const AuthInputContainer = styled.div`
   position: relative;
   width: 100%;
@@ -63,6 +67,14 @@ export const AuthInputField = styled.input`
     }
   }
 
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px rgba(139, 170, 54, 0.5) inset;
+  }
+
+  &:-moz-autofill {
+    box-shadow: 0 0 0 1000px rgba(139, 170, 54, 0.5) inset;
+  }
+
   @media screen and (min-width: 768px) {
     padding: 21px 21px 21px 50px;
 
@@ -90,7 +102,8 @@ export const AuthInputIcon = styled.svg`
   }
 `;
 
-export const IndicatorIconWrap = styled.div`
+export const IndicatorIconWrap = styled.div<ShowPasswordProps>`
+  display: ${({ $action }) => ($action ? 'block' : 'none')};
   position: absolute;
   top: 14px;
   right: 16px;
@@ -119,5 +132,36 @@ export const ValidationMsg = styled.p`
 
   @media screen and (min-width: 768px) {
     font-size: 12px;
+  }
+`;
+
+export const ShowPasswordBtn = styled.button<ShowPasswordProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  position: absolute;
+  right: ${({ $action }) => ($action ? '40px' : '15px')};
+  top: ${({ $action }) => ($action ? '13px' : '15px')};
+  background-color: transparent;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--light);
+    stroke: var(--light);
+  }
+
+  &.is-shown {
+    opacity: 1;
+  }
+
+  @media screen and (min-width: 768px) {
+    top: 15px;
+
+    svg {
+      width: 25px;
+      height: 25px;
+    }
   }
 `;

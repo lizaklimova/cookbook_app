@@ -10,3 +10,5 @@ export const selectIsRefreshing = (state: RootState) => state.auth.isRefreshing;
 
 export const selectIsPageReloaded = (state: RootState) =>
   state.auth.isPageReloaded;
+
+export const selectIsLoading = (state: RootState) => state.auth.isLoading;
