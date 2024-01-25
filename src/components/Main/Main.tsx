@@ -1,7 +1,6 @@
 import { FC, useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 import useAuth from 'hooks/useAuth';
-import useTheme from 'hooks/useTheme';
 
 const Main: FC = () => {
   const {
@@ -9,10 +8,6 @@ const Main: FC = () => {
     isLoggedIn,
     isPageReloaded,
   } = useAuth();
-
-  const {
-    currentTheme: { background, mainText },
-  } = useTheme();
 
   useEffect(() => {
     if (isLoggedIn && !isPageReloaded) {
