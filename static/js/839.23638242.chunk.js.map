@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/839.23638242.chunk.js","mappings":"uKAEA,MAIA,EAJ2BA,KAClBC,EAAAA,EAAAA,KAAA,S","sources":["pages/CategoriesPage.tsx"],"sourcesContent":["import { FC } from 'react';\n\nconst CategoriesPage: FC = () => {\n  return <div></div>;\n};\n\nexport default CategoriesPage;\n"],"names":["CategoriesPage","_jsx"],"sourceRoot":""}

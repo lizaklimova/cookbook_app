@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkcookbook_app_template=self.webpackChunkcookbook_app_template||[]).push([[839],{839:(e,o,p)=>{p.r(o),p.d(o,{default:()=>k});var a=p(184);const k=()=>(0,a.jsx)("div",{})}}]);
-//# sourceMappingURL=839.23638242.chunk.js.map
