@@ -5,7 +5,6 @@ type ShowPasswordProps = {
 };
 
 export const AuthInputContainer = styled.div`
-  position: relative;
   width: 100%;
 `;
 
@@ -87,7 +86,7 @@ export const AuthInputField = styled.input`
 
 export const AuthInputIcon = styled.svg`
   position: absolute;
-  top: 45%;
+  top: 50%;
   left: 14px;
   transform: translateY(-55%);
   transition: opacity var(--easedTransition);
@@ -96,7 +95,7 @@ export const AuthInputIcon = styled.svg`
   opacity: 0.8;
 
   @media screen and (min-width: 768px) {
-    top: 45%;
+    top: 50%;
     width: 24px;
     height: 24px;
   }
