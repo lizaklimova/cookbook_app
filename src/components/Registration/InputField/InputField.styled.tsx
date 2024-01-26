@@ -87,7 +87,7 @@ export const AuthInputField = styled.input`
 
 export const AuthInputIcon = styled.svg`
   position: absolute;
-  top: 23px;
+  top: 45%;
   left: 14px;
   transform: translateY(-55%);
   transition: opacity var(--easedTransition);
@@ -96,7 +96,7 @@ export const AuthInputIcon = styled.svg`
   opacity: 0.8;
 
   @media screen and (min-width: 768px) {
-    top: 29px;
+    top: 45%;
     width: 24px;
     height: 24px;
   }
