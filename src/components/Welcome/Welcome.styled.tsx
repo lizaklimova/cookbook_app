@@ -27,6 +27,7 @@ export const MainTextWrap = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 `;
 
 export const MainLogo = styled.svg`
@@ -78,9 +79,15 @@ export const MainText = styled.p`
 
 export const MainBtnWrap = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
+
+  @media screen and (min-width: 375px) {
+    flex-direction: row;
+    gap: 10px;
+  }
 
   @media screen and (min-width: 768px) {
     gap: 18px;
@@ -90,7 +97,7 @@ export const MainBtnWrap = styled.div`
 export const MainRegisterBtn = styled.button`
   border: 2px solid var(--accentGreen);
   border-radius: 25px 60px;
-  padding: 15px 24px;
+  padding: 15px;
   color: var(--light);
   background-color: var(--accentGreen);
   transition: border-color var(--easedTransition), color var(--easedTransition),
@@ -103,6 +110,14 @@ export const MainRegisterBtn = styled.button`
     background-color: transparent;
   }
 
+  @media screen and (min-width: 375px) {
+    padding: 10px;
+  }
+
+  @media screen and (min-width: 500px) {
+    padding: 15px 24px;
+  }
+
   @media screen and (min-width: 768px) {
     font-size: 16px;
     padding: 22px 44px;
@@ -112,7 +127,7 @@ export const MainRegisterBtn = styled.button`
 export const MainLoginBtn = styled.button`
   border: 2px solid var(--light);
   border-radius: 25px 60px;
-  padding: 15px 24px;
+  padding: 15px 35px;
   color: var(--light);
   background-color: transparent;
   transition: border-color var(--easedTransition), color var(--easedTransition);
@@ -121,6 +136,14 @@ export const MainLoginBtn = styled.button`
   &:focus {
     border-color: var(--accentGreen);
     color: var(--accentGreen);
+  }
+
+  @media screen and (min-width: 375px) {
+    padding: 10px;
+  }
+
+  @media screen and (min-width: 500px) {
+    padding: 15px 24px;
   }
 
   @media screen and (min-width: 768px) {
