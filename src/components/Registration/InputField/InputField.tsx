@@ -81,34 +81,36 @@ const InputField: FC<InputFieldProps> = ({
 
   return (
     <AuthInputContainer>
-      <AuthInputField
-        className={actualClassName}
-        type={determineInputType()}
-        name={label}
-        placeholder={label}
-        onChange={onInputChange}
-        onBlur={onInputBlur}
-        autoComplete={label === 'name' ? 'off' : 'on'}
-        required
-      />
-      {type === 'password' && (
-        <ShowPasswordBtn
-          $action={register}
-          className={showPasswordButton}
-          onClick={() => setIsPasswordShown(prev => !prev)}
-        >
-          {isPasswordShown ? <IoEyeOffOutline /> : <IoEyeOutline />}
-        </ShowPasswordBtn>
-      )}
+      <div style={{ position: 'relative' }}>
+        <AuthInputField
+          className={actualClassName}
+          type={determineInputType()}
+          name={label}
+          placeholder={label}
+          onChange={onInputChange}
+          onBlur={onInputBlur}
+          autoComplete={label === 'name' ? 'off' : 'on'}
+          required
+        />
+        {type === 'password' && (
+          <ShowPasswordBtn
+            $action={register}
+            className={showPasswordButton}
+            onClick={() => setIsPasswordShown(prev => !prev)}
+          >
+            {isPasswordShown ? <IoEyeOffOutline /> : <IoEyeOutline />}
+          </ShowPasswordBtn>
+        )}
+        <AuthInputIcon width={18} height={18}>
+          <use href={`${sprite}#icon-${icon}`}></use>
+        </AuthInputIcon>
+        <IndicatorIconWrap $action={register}>
+          <svg width={20} height={20}>
+            <use href={determineInputIcon(isSuccess, isError, isWarn)}></use>
+          </svg>
+        </IndicatorIconWrap>
+      </div>
       <ValidationMsg className={actualClassName}>{validationMsg}</ValidationMsg>
-      <AuthInputIcon width={18} height={18}>
-        <use href={`${sprite}#icon-${icon}`}></use>
-      </AuthInputIcon>
-      <IndicatorIconWrap $action={register}>
-        <svg width={20} height={20}>
-          <use href={determineInputIcon(isSuccess, isError, isWarn)}></use>
-        </svg>
-      </IndicatorIconWrap>
     </AuthInputContainer>
   );
 };
