@@ -57,3 +57,15 @@ export const BgLeavesBottom = styled.div`
     background-image: url(${bottomDesk});
   }
 `;
+
+export const Main = styled.main`
+  padding: 53px 16px 100px 16px;
+
+  @media screen and (min-width: 768px) {
+    padding: 73px 32px 200px 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 102px 100px 100px 100px;
+  }
+`;

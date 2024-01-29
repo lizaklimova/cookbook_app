@@ -3,17 +3,17 @@ import { Outlet } from 'react-router-dom';
 import Header from 'components/Header';
 import Loader from 'components/Loader';
 import Footer from 'components/Footer';
-import { BgLeavesTop, BgLeavesBottom } from './SharedLayout.styled';
+import { BgLeavesTop, BgLeavesBottom, Main } from './SharedLayout.styled';
 
 const SharedLayout: FC = () => {
   return (
     <>
       <Header />
-      <main>
+      <Main>
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
-      </main>
+      </Main>
       <BgLeavesBottom />
       <BgLeavesTop />
       <Footer />
