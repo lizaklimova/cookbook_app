@@ -4,8 +4,8 @@ import { Formik } from 'formik';
 import useTheme from 'hooks/useTheme';
 import { SearchButton, SearchInput, StyledForm } from './SearchForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectSearchQuery } from '../../redux/searchQuery/selectors';
-import { updateSearchQueryAction } from '../../redux/searchQuery/slice';
+import { selectSearchQuery } from '../../redux/search/selectors';
+import { updateSearchQueryAction } from '../../redux/search/slice';
 
 const SearchForm: FC = () => {
   const { theme } = useTheme();
@@ -15,14 +15,15 @@ const SearchForm: FC = () => {
   const dispatch = useDispatch();
 
   const handleSearch = () => {
-    if (pathname === '/main' && query.trim().length) {
+    if (pathname === '/main' && query.length) {
       navigate('/search');
     }
+
     console.log(query);
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    dispatch(updateSearchQueryAction(event.target.value));
+    dispatch(updateSearchQueryAction(event.target.value.trim()));
   };
 
   return (

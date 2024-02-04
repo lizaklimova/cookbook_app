@@ -11,7 +11,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/slice';
-import { searchQueryReducer } from './searchQuery/slice';
+import { searchReducer } from './search/slice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -22,7 +22,7 @@ const authPersistConfig = {
 const persistedReducer = persistReducer(authPersistConfig, authReducer);
 const rootReducer = combineReducers({
   auth: persistedReducer,
-  searchQuery: searchQueryReducer,
+  search: searchReducer,
 });
 
 export const store = configureStore({
