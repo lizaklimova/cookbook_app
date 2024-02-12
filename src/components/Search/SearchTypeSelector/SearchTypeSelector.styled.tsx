@@ -9,13 +9,16 @@ export const SelectWrap = styled.div`
   display: flex;
   align-items: center;
   gap: 15px;
+  margin-bottom: 42px;
 
   @media screen and (min-width: 768px) {
     gap: 32px;
+    margin-bottom: 40px;
   }
 
   @media screen and (min-width: 1440px) {
     gap: 18px;
+    margin-bottom: 90px;
   }
 `;
 
@@ -68,6 +71,7 @@ export const SelectContainer = styled.div`
 
 export const Options = styled.ul`
   position: absolute;
+  z-index: 900;
   top: 100%;
   left: 0;
   width: 100%;
