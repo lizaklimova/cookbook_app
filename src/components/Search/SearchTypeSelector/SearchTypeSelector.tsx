@@ -24,22 +24,18 @@ const SearchTypeSelector: FC = () => {
     const value = event.currentTarget.dataset.value;
 
     dispatch(updateSearchTypeAction(value));
-    closeDropdown();
+    toggleDropdown();
   };
 
-  const openDropdown = () => {
-    setIsOpen(true);
-  };
-
-  const closeDropdown = () => {
-    setIsOpen(false);
+  const toggleDropdown = () => {
+    setIsOpen(prev => !prev);
   };
 
   return (
     <SelectWrap>
       <SelectName>Search by:</SelectName>
       <SelectContainer>
-        <Select onClick={openDropdown} $theme={theme}>
+        <Select onClick={toggleDropdown} $theme={theme}>
           {searchType === 'query' ? 'Title' : 'Ingredients'}
           <ArrowDown />
         </Select>
