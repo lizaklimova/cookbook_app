@@ -13,3 +13,10 @@ export const FooterInfoContainer = styled.div`
   align-items: center;
   background-color: var(--footerBg);
 `;
+
+export const LogoTitle = styled.p`
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1;
+  margin: 28px 0 32px 0;
+`;
