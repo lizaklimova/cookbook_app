@@ -32,6 +32,7 @@ export const GlobalStyles = createGlobalStyle`
 --selectBg:${({ theme }) => theme.selectBg};
 --easedTransition:${({ theme }) => theme.easedTransition};
 --footerBg:${({ theme }) => theme.footerBg};
+--footerButton:${({ theme }) => theme.footerButton}
 }
 
 *,

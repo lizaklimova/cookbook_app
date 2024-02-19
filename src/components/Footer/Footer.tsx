@@ -14,8 +14,8 @@ const Footer: FC = () => {
       <FooterInfoContainer>
         <LogoTitle to="/main">So Yummy</LogoTitle>
         <FooterNavigation />
-        <FooterFollowUs />
         <FooterSubscribeForm />
+        <FooterFollowUs />
       </FooterInfoContainer>
     </FooterContainer>
   );

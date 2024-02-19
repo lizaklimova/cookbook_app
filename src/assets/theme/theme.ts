@@ -38,6 +38,7 @@ export const lightTheme: Theme = Object.freeze({
   paginationActiveText: '#FAFAFA',
   selectBg: '#FAFAFA', //селект секції addRecipe
   footerBg: '#22252A',
+  footerButton: '#8baa36',
 });
 
 export const darkTheme: Theme = Object.freeze({
@@ -58,4 +59,5 @@ export const darkTheme: Theme = Object.freeze({
   paginationActiveText: '#22252A',
   selectBg: '#8BAA36',
   footerBg: '#8BAA36',
+  footerButton: '#1e1f28',
 });
