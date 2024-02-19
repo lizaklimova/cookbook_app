@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const FooterContainer = styled.footer`
@@ -14,7 +15,7 @@ export const FooterInfoContainer = styled.div`
   background-color: var(--footerBg);
 `;
 
-export const LogoTitle = styled.p`
+export const LogoTitle = styled(Link)`
   font-weight: 700;
   font-size: 18px;
   line-height: 1;

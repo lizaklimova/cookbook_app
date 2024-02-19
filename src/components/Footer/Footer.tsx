@@ -12,7 +12,7 @@ const Footer: FC = () => {
   return (
     <FooterContainer>
       <FooterInfoContainer>
-        <LogoTitle>So Yummy</LogoTitle>
+        <LogoTitle to="/main">So Yummy</LogoTitle>
         <FooterNavigation />
         <FooterFollowUs />
         <FooterSubscribeForm />
