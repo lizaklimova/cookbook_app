@@ -53,6 +53,8 @@ export const GlobalStyles = createGlobalStyle`
   scrollbar-width: thin;
   scrollbar-color: var(--accentGreen);
   overflow-x: hidden;
+  position: relative; 
+  min-height: 100vh;
 }
 
  ::-webkit-scrollbar {
