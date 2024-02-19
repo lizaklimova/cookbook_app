@@ -31,6 +31,7 @@ export const GlobalStyles = createGlobalStyle`
 --paginationActiveText:${({ theme }) => theme.paginationActiveText};
 --selectBg:${({ theme }) => theme.selectBg};
 --easedTransition:${({ theme }) => theme.easedTransition};
+--footerBg:${({ theme }) => theme.footerBg};
 }
 
 *,
